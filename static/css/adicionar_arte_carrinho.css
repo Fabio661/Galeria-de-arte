@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    padding: 10px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+
+}
+
+.sobre-arte {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    margin-left: 10px;
+    height: 200px;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}

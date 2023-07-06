@@ -22,7 +22,7 @@ class ArteUpdate(UpdateView):
     fields = ('titulo', 'imagem', 'descricao', 'preco', 'categoria',)
     success_url = reverse_lazy('arte_lista')
 
-class ArteDetail(DeletionMixin, FormMixin, DetailView):
+class ArteDetail(FormMixin, DetailView):
     queryset = Arte.objects.all()
     form_class = ComentarioForm
     
