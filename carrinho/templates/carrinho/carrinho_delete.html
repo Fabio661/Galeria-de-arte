@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>FK • Remover Arte</title>
+</head>
+<body>
+    
+    <h1>Tem certeza que deseja remover {{arte.titulo}} ?</h1>
+    <form action="." method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Remover</button>
+    </form>
+    <a href="{% url 'carrinho_lista' %}"><button class="btn btn-success">Não quero deletar</button></a>
+
+</body>
+</html>
