@@ -1,0 +1,21 @@
+/* Texto Categoria */
+.texto_categoria {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    background-color: cornflowerblue;
+}
+
+/* Artes */
+
+.container_artes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.container_artes img {
+    height: 250px;
+}

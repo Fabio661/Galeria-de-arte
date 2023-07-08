@@ -27,14 +27,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
                     </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    <div class="categorias">
+        {% for categoria in categorias %}
+            <a href="{% url 'artes_filtradas' slug=categoria.slug %}"><button class="btn btn-primary">{{categoria}}</button></a>
+        {% endfor %}    
+    </div>
 
     <h1>Artes</h1>
     <ul>
-        {% for arte in object_list %}
+        {% for arte in artes %}
         <li>
             <img src="{{arte.imagem}}" alt="imagem - {{arte.titulo}}">
             {{arte.titulo}} - {{user.username}}<br>
