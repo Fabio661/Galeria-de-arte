@@ -1,0 +1,34 @@
+/* barra de pesquisa */
+.barra {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.barra input {
+    height: 70px;
+    width: 1300px;
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    font-size: x-large;
+}
+
+input[type=text] {
+    font-size: x-large;
+}
+
+/* Artes */
+.container2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.container2 img {
+    height: 250px;
+}
