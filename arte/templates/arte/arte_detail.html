@@ -12,8 +12,7 @@
 </head>
 <body>
     
-    <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'arte_lista' %}">FK GALERIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,30 +26,34 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
                     </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!--Arte e informações-->
-    <div class="container1">
-        <div class="arte">
-            <img src="{{arte.imagem.url}}" alt="imagem - {{arte.titulo}}">
+    <div class="container2">
+        <div class="card" style="width: 800px;">
+            <img src="{{arte.imagem.url}}" class="card-img-top" alt="imagem - {{arte.titulo}}">
+            <div class="card-body">
+                <h5 class="card-title">{{arte.titulo}} - {{user.username}}</h5>
+                <p class="card-text">{{arte.descricao}}<br>
+                    Categoria: {{arte.categoria}}<br>
+                    R${{arte.preco|floatformat:2}}
+                </p>
+            </div>
+            <div class="add_carrinho">
+                <a href="{% url 'carrinho_adicionar_item' pk=arte.id%}"><button class="btn">Adicionar ao Carrinho</button></a>
+            </div>
         </div>
-        <div class="sobre_arte">
-            <h1>{{arte.titulo}}</h1>
-            <p><strong>Descrição:</strong> {{arte.descricao}}<br>
-                <strong>Preço:</strong> R${{arte.preco}}
-            </p>        
-        </div>
-        
     </div>
-
-    <!--Adicionar ao Carrinho-->
-    <a href="{% url 'carrinho_adicionar_item' pk=arte.id%}"><button class="btn btn-primary">Adicionar ao Carrinho</button></a>
+    <hr>
 
     <!--Comentarios-->
-    <div class="container2">
+    <div class="container3">
         {% if arte.comentarios %}
             {% if arte.comentarios.count == 1 %}
                 <h1>{{arte.comentarios.count}} comentario</h1>
@@ -58,30 +61,31 @@
                 <h1>{{arte.comentarios.count}} comentarios</h1>
             {% endif %}
         {% endif %}
-        
+
         {% for comentario in arte.comentarios.all %}
-        <strong><p>{{comentario.usuario}}</strong> - {{comentario.criado_em}}</p>
-        <p>{{comentario.comentario}}</p>
-
-        <!--Deletar Comentario-->
-        <a href="{% url 'arte_deletar_comentario' id=comentario.id %}"><button class="btn btn-primary">excluir</button></a>
-        <!--Editar Comentario-->
-        <a href="{% url 'arte_editar_comentario' pk=comentario.id %}"><button class="btn btn-primary">editar</button></a>
-
+        <div class="comentario">
+            <strong><p>{{comentario.usuario}}</strong> - {{comentario.criado_em}}</p>
+            <p>{{comentario.comentario}}</p>  
+            <a href="{% url 'arte_deletar_comentario' id=comentario.id %}"><button class="btn">excluir</button></a>
+            <a href="{% url 'arte_editar_comentario' pk=comentario.id %}"><button class="btn">editar</button></a>
+            <hr>
+        </div>       
         {% endfor %}       
-
     </div>
-    
+
     <!--Comentar-->
-    <div class="container3">
+    <div class="container4">
         <form id="form2" method="post" action="comentar">
         <input type="hidden" name="arte_id" value="{{arte.id}}">
         {% csrf_token %}
-        <hr>
         {{form}}
-        <button type="submit" class="btn btn-primary  btn-lg">comentar</button>
+        <button type="submit" class="btn btn">comentar</button>
         </form>
     </div>
+
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,76 @@
+body {
+    background-image: linear-gradient( to right, beige, rgb(238, 238, 192), rgb(204, 204, 142), rgb(182, 182, 111));
+}
+
+/* titulo */
+.titulo {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+/* Comentario antigo*/
+.container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container2 .card-body {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+/* titulo2 */
+.titulo2 {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+/* novo comentario */
+.comentario-novo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentario-novo form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 85px;
+    width: 500px;   
+}
+
+/* botões */
+.comentario-novo form button {
+    margin-left: 70px;
+}
+
+.btn {
+    border: 1px solid black;
+    transition: none;
+    color: #000;
+}
+
+.btn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+    position: fixed;
+}

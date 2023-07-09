@@ -1,3 +1,7 @@
+body {
+    background-image: linear-gradient( to right, beige, rgb(238, 238, 192), rgb(204, 204, 142), rgb(182, 182, 111));
+}
+
 /* barra de pesquisa */
 .barra {
     display: flex;
@@ -9,6 +13,8 @@
 .barra input {
     height: 70px;
     width: 1300px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-input-placeholder {
@@ -29,6 +35,32 @@ input[type=text] {
     padding: 10px;
 }
 
+.container2 .card {
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .container2 img {
     height: 250px;
+}
+
+/* botões */
+.btn {
+    border: 1px solid black;
+    transition: none;
+    color: #000;
+}
+
+.btn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+    position: fixed;
 }

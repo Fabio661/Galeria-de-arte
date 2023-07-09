@@ -13,7 +13,7 @@
 <body>
     
     <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'arte_lista' %}">FK GALERIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
                     </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -37,41 +40,34 @@
     </div>
 
     <div class="container2">
-        <section class="itens_carrinho">
-            <ul>
-                {% for item in itens%}
-                <li>
-                    <div class="cart_itens_carrinho">
-                        <div class="cima">
-                            <h5>{{item.arte}}</h5>
-                        </div>
-                        <a href="{% url 'arte_detalhe' pk=item.arte.id %}"><img src="{{item.arte.imagem.url}}" alt="imagem da {{item.arte}}"></a>
-                        <div class="baixo">                 
-                            <p>{{item.arte.descricao}}<br>
-                                <strong>Quantidade:</strong> {{item.quantidade}}<br>
-                                <strong>R${{item.arte.preco}}</strong>
-                            </p>
-                            <a href="{% url 'carrinho_item_deletar' pk=item.id %}"><button class="btn btn-primary">Remover</button></a>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}   
-            </ul> 
-        </section>
-        
-        <div class="container3">
-            <aside class="sobre_carrinho">
-                <div class="cart_sobre_carrinho">
-                    <h1>Seu Carrinho</h1>
-                    <p><strong>Quantidade de Artes:</strong> {{itens.count}}<br>
-                        <strong>Preço Total:</strong> {{preco_total}}
-                    </p>
-                </div>
-            </aside>
+        {% for item in itens%}
+        <div class="card" style="width: 18rem;">
+            <img src="{{item.arte.imagem.url}}" alt="imagem da {{item.arte}}">
+            <div class="card-body">
+                <h5 class="card-title">{{item.arte.titulo}} - {{user.username}}</h5>
+                <p class="card-text">{{item.arte.descricao}}<br>
+                    Categoria: {{item.arte.categoria}}<br>
+                    R${{item.arte.preco|floatformat:2}}
+                </p>
+                <a href="{% url 'carrinho_item_deletar' pk=item.id %}"><button class="btn">Remover</button></a>
+                <a href="{% url 'arte_detalhe' pk=item.arte.id %}"><button class="btn">Ver Mais</button></a>
+            </div>
         </div>
-
+        {% endfor %}
     </div>
     
+    <div class="container3">
+        <aside class="sobre_carrinho">
+            <h1>Seu Carrinho</h1>
+            <p><strong>Quantidade de Artes:</strong> {{itens.count}}<br>
+                <strong>Preço Total:</strong> {{preco_total|floatformat:2}}
+            </p>
+        </aside>
+    </div>
     
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
+
 </body>
 </html>

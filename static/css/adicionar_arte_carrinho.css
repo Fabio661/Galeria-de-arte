@@ -1,25 +1,53 @@
-.container {
+body {
+    background-image: linear-gradient( to right, beige, rgb(238, 238, 192), rgb(204, 204, 142), rgb(182, 182, 111));
+}
+
+/* titulo */
+.titulo {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+/* arte */
+.container2 {
     display: flex;
+    justify-content: center;
     padding: 10px;
 }
 
-h1 {
-    display: flex;
-    justify-content: center;
-
+.container2 .card {
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
-.sobre-arte {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    margin-left: 10px;
-    height: 200px;
+.container2 .add_carrinho {
+    text-align: center;
+    margin-bottom: 5px;
 }
 
-.btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+img {
+    height: 500px;
+}
+
+/* botões */
+.btn {
+    border: 1px solid black;
+    transition: none;
+    color: #000;
+}
+
+.btn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+    position: fixed;
 }
