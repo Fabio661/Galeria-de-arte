@@ -88,6 +88,7 @@ class ArtesFiltradas(TemplateView):
         context = super().get_context_data(**kwargs)
         categoria = get_object_or_404(Categoria, slug=self.kwargs['slug'])
         artes_filtradas = Arte.objects.filter(categoria=categoria)
+        context['categorias'] = Categoria.objects.all()
         context['artes_filtradas'] = artes_filtradas
         context['preco'] = Arte.preco
         context['categoria'] = categoria

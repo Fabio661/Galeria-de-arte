@@ -13,7 +13,7 @@
 <body>
     
     <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">FK GALERIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,26 +37,35 @@
     
     <div class="categorias">
         {% for categoria in categorias %}
-            <a href="{% url 'artes_filtradas' slug=categoria.slug %}"><button class="btn btn-primary">{{categoria}}</button></a>
+            <a href="{% url 'artes_filtradas' slug=categoria.slug %}"><button class="btn">{{categoria}}</button></a>
         {% endfor %}    
     </div>
 
-    <h1>Artes</h1>
-    <ul>
+    <div class="arte">
+        <h1>Artes</h1>
+        <a href="{% url 'arte_criar' %}"><button class="btn btn">Publicar Arte</button></a>
+    </div>
+
+    <div class="container2">
         {% for arte in artes %}
-        <li>
-            <img src="{{arte.imagem}}" alt="imagem - {{arte.titulo}}">
-            {{arte.titulo}} - {{user.username}}<br>
-            R${{arte.preco}}
-            {{arte.descricao}}
-            <a href="{% url 'arte_editar' pk=arte.id %}"><button class="btn btn-primary">Editar</button></a>
-            <a href="{% url 'arte_detalhe' pk=arte.id %}"><button class="btn btn-primary">Ver Mais</button></a>
-            <a href="{% url 'arte_deletar' pk=arte.id %}"><button class="btn btn-primary">Deletar</button></a>
-            <hr>
-        </li>
+        <div class="card" style="width: 18rem;">
+            <img src="{{arte.imagem.url}}" class="card-img-top" alt="imagem - {{arte.titulo}}">
+            <div class="card-body">
+                <h5 class="card-title">{{arte.titulo}} - {{user.username}}</h5>
+                <p class="card-text">{{arte.descricao}}<br>
+                    R${{arte.preco|floatformat:2}}
+                </p>
+                <a href="{% url 'arte_editar' pk=arte.id %}"><button class="btn">Editar</button></a>
+                <a href="{% url 'arte_detalhe' pk=arte.id %}"><button class="btn">Ver Mais</button></a>
+                <a href="{% url 'arte_deletar' pk=arte.id %}"><button class="btn">Deletar</button></a>
+            </div>
+        </div>
         {% endfor %}
-        <a href="{% url 'arte_criar' %}"><button class="btn btn-primary">Publicar Arte</button></a>
-    </ul>
-    
+    </div>
+   
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
+
 </body>
 </html>

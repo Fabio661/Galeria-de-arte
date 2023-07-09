@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,16 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/comentario_delete.css' %}">
     <title>FK • Deletar</title>
 </head>
 <body>
     
-    <h1>Tem certeza que deseja deletar ?</h1>
-    <form action="{% url 'arte_deletar_comentario' id=comentario.id %}" method="post">
-        {% csrf_token %}
-        <button class="btn btn-danger">Deletar</button>
-    </form>
-    <a href="{% url 'arte_lista' %}"><button class="btn btn-success">Não quero deletar</button></a>
+    <nav class="navbar navbar-expand-lg bg-body-">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'arte_lista' %}">FK GALERIA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'arte_lista' %}">Artes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
+                    </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="titulo">
+        <h1>Tem certeza que deseja deletar este comentario?</h1>
+    </div>
+
+    <!--Comentario-->
+    <div class="container2">
+        <div class="card-body">
+            <h5 class="card-title">{{comentario.usuario}} - {{comentario.arte}}</h5>
+            <p class="card-text">{{comentario.comentario}}<br>
+                Criado em: {{comentario.criado_em}}<br>
+            </p>
+        </div>
+    </div>
+    <div class="deletar_comentario">
+        <form action="{% url 'arte_deletar_comentario' id=comentario.id %}" method="post">
+            {% csrf_token %}
+            <button class="btn">Deletar</button>
+        </form>
+        <a href="{% url 'arte_lista' %}"><button class="btn">Não quero deletar</button></a>
+    </div>
+
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
 
 </body>
 </html>

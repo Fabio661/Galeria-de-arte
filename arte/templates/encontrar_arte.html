@@ -13,7 +13,7 @@
 <body>
     
     <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'arte_lista' %}">FK GALERIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
                     </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -35,8 +38,8 @@
     <!--Barra de pesquisa-->
     <div class="barra de pesquisa">
         <form action="?" method="get">
-            <input type="text" name="titulo" id="" value="{{ request.get.titulo }}" class="p-1 border" autocomplete="off" placeholder="O que você esta procurando?">
-            <button type="submit" class="btn btn-success">Encontrar</button>
+            <input type="text" name="titulo" id="" value="{{ request.get.titulo }}" autocomplete="off" placeholder="O que você esta procurando?">
+            <button type="submit" class="btn">Encontrar</button>
         </form>
     </div>
 
@@ -48,14 +51,18 @@
                 <div class="card-body">
                     <h5 class="card-title">{{arte.titulo}} - {{user.username}}</h5>
                     <p class="card-text">{{arte.descricao}}<br>
-                        R${{arte.preco}}</p>
-                    <a href="{% url 'arte_editar' pk=arte.id %}"><button class="btn btn-primary">Editar</button></a>
-                    <a href="{% url 'arte_detalhe' pk=arte.id %}"><button class="btn btn-primary">Ver Mais</button></a>
-                    <a href="{% url 'arte_deletar' pk=arte.id %}"><button class="btn btn-primary">Deletar</button></a>
+                        R${{arte.preco|floatformat:2}}</p>
+                    <a href="{% url 'arte_editar' pk=arte.id %}"><button class="btn">Editar</button></a>
+                    <a href="{% url 'arte_detalhe' pk=arte.id %}"><button class="btn">Ver Mais</button></a>
+                    <a href="{% url 'arte_deletar' pk=arte.id %}"><button class="btn">Deletar</button></a>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
 
 </body>
 </html>

@@ -2,41 +2,25 @@ body {
     background-image: linear-gradient( to right, beige, rgb(238, 238, 192), rgb(204, 204, 142), rgb(182, 182, 111));
 }
 
-/* categorias */
-.categorias {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-.categorias button {
-    border-radius: 20px;
-}
-
-/* Texto Categoria */
-.texto_categoria {
+/* titulo */
+.titulo {
     text-align: center;
     margin-top: 10px;
     padding: 5px;
 }
 
-/* Artes */
+/* formulario */
 .container2 {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.formulario {
     padding: 10px;
-}
-
-.container2 .card {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.container2 img {
-    height: 250px;
+    height: 400px;
+    width: 500px;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 /* botões */

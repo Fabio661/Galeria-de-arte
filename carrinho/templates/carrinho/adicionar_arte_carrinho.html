@@ -13,7 +13,7 @@
 <body>
     
     <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'arte_lista' %}">FK GALERIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,28 +27,42 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrinho_lista' %}">Carrinho</a>
                     </li>
+                    <li class="nav-tem">
+                        <a class="nav-link" href="{% url 'encontrar_arte' %}">Procurar</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <h1>{{arte.titulo}}</h1>
-    <div class="container adicionar-ao-carrinho">
-        <img src="{{arte.imagem.url}}" alt="imagem da {{arte.titulo}}">
-        <div class="sobre-arte">
-            <p>{{arte.descricao}}</p>
-            <h3>R${{arte.preco}}</h3>
+    <div class="titulo">
+        <h1>Arte {{arte.titulo}}</h1>
+    </div>
+
+    <!--Arte e informações-->
+    <div class="container2">
+        <div class="card" style="width: 800px;">
+            <img src="{{arte.imagem.url}}" class="card-img-top" alt="imagem - {{arte.titulo}}">
+            <div class="card-body">
+                <h5 class="card-title">{{arte.titulo}} - {{user.username}}</h5>
+                <p class="card-text">{{arte.descricao}}<br>
+                    Categoria: {{arte.categoria}}<br>
+                    R${{arte.preco|floatformat:2}}
+                </p>
+            </div>
+            <div class="btn">
+                <form action="." method="post">
+                    {% csrf_token %}
+                    <button class="btn">Adicionar</button>
+                </form>
+                <a href="{% url 'arte_lista' %}"><button class="btn">Voltar</button></a>
+            </div>
         </div>
     </div>
 
-    <div class="btns">
-        <form action="." method="post">
-            {% csrf_token %}
-            <button class="btn btn-danger">Adicionar</button>
-        </form>
-        <a href="{% url 'arte_lista' %}"><button class="btn btn-success">Voltar</button></a>
-    </div>
-
+    <footer class="rodape">
+        &copy; Todos os direitos reservados a Fabio Kauan 
+    </footer>
 
 </body>
 </html>

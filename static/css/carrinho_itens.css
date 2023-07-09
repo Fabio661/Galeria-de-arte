@@ -1,62 +1,72 @@
+body {
+    background-image: linear-gradient( to right, beige, rgb(238, 238, 192), rgb(204, 204, 142), rgb(182, 182, 111));
+}
+
 /* Texto Carrinho */
 .texto_carrinho {
     text-align: center;
-    color: white;
     padding: 10px;
-    background-color: cornflowerblue;
+    border: 1px solid black;
 }
 
 /* Carrinho */
-
 .container2 {
     display: flex;
-}
-
-.container2 ul {
-    display: flex;
     flex-wrap: wrap;
-    width: 1350px;
+    width: 1420px;
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 10px;
     align-content: space-around;
     list-style: none;
-    padding: 20px;
-    background-color: rgb(55, 236, 197);
-    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    float: left;
 }
 
-.container2 ul li .cart_itens_carrinho {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.container2 ul li .cart_itens_carrinho .cima {
-    text-align: center;
-    background-color: aqua;
-    border: 1px solid aqua;
-}
-
-.container2 ul li .cart_itens_carrinho .baixo {
-    padding: 5px;
-    background-color: coral;
+.container2 .card {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .container2 img {
+    border-radius: 5px;
     height: 200px;
-    width: 250px;
 }
 
-/* Seu Carrinho */
+/* botões */
+.btn {
+    border: 1px solid black;
+    transition: none;
+    color: #000;
+}
 
-.container3 .sobre_carrinho .cart_sobre_carrinho {
-    margin-left: 150px;
-    margin-top: 20px;
-    height: 200px;
-    width: 300px;
-    padding: 10px;
+.btn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+
+/* Seu Carrinho */
+.container3 {
+    display: flex;
+    border: 1px solid black;
     border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 1480px;
+    width: 260px;
+}
+
+.container3 .sobre_carrinho {
+    padding: 10px;
     text-align: center;
-    color: white;
-    background-color: darkolivegreen;
-    
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+    position: fixed;
 }
