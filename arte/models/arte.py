@@ -4,7 +4,7 @@ from arte.models.categoria import Categoria
 
 class Arte(models.Model):
     titulo = models.CharField(max_length=100)
-    imagem = models.ImageField(upload_to='image/')
+    imagem = models.ImageField(upload_to='image/', blank=True)
     descricao = models.CharField(max_length=200, blank=True)
     preco = models.IntegerField(null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True, blank=True)

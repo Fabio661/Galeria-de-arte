@@ -11,6 +11,6 @@ urlpatterns = [
     path('comentario/<int:id>/deletar/', views.ComentarioDelete.as_view(), name='arte_deletar_comentario'),
     path('comentario/<int:pk>/editar/', views.ComentarioUpdate.as_view(), name='arte_editar_comentario'),
     path('<slug:slug>/artes/', views.ArtesFiltradas.as_view(), name='artes_filtradas'),
-    path('encontrar/', views.EncontrarArtes.as_view(), name='encontrar_arte')
+    path('encontrar/', views.EncontrarArtes.as_view(), name='encontrar_arte'),
       
 ]
