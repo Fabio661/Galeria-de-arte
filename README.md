@@ -1,5 +1,5 @@
 # Galeria-de-arte
 projeto em CBV
 
-![Screenshot_6](https://github.com/Fabio661/Galeria-de-arte/assets/125137802/0de1e1e3-fbac-45f9-af6e-9dea845f8222)
+![Screenshot_6](https://github.com/Fabio661/Galeria-de-arte/assets/125137802/805e7065-d81d-4b66-838b-edad1f012366)
 
