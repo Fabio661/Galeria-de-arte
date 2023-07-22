@@ -26,8 +26,7 @@ class AdicionarArteCarrinho(View):
             arte.salvo.add(usuario)
             Carrinho(usuario=self.request.user, arte=arte).save()
             return redirect(reverse('carrinho_lista'))
-      
-      
+           
 class CarrinhoItens(TemplateView):
     template_name = 'carrinho_itens.html'
     
